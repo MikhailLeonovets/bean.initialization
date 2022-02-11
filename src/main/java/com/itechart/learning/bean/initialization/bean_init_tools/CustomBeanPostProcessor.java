@@ -6,15 +6,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomBeanPostProcessor implements BeanPostProcessor {
-	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException
-	{
-		System.out.println("Called postProcessBeforeInitialization() for :" + beanName);
+	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+		if ("simpleBean".equals(beanName)) {
+			System.out.println("Called postProcessBeforeInitialization() for :" + beanName);
+		}
 		return bean;
 	}
 
-	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException
-	{
-		System.out.println("Called postProcessAfterInitialization() for :" + beanName);
+	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+		if ("simpleBean".equals(beanName)) {
+			System.out.println("Called postProcessAfterInitialization() for :" + beanName);
+		}
 		return bean;
 	}
 }
