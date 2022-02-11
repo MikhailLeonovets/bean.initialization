@@ -19,13 +19,11 @@ public class SimpleBeanFactoryBean implements FactoryBean<SimpleBean> {
 
 	@Override
 	public Class<?> getObjectType() {
-		System.out.println("I'm in getObjectType() method in SimpleBeanFactoryBean");
 		return SimpleBean.class;
 	}
 
 	@Override
 	public boolean isSingleton() {
-		System.out.println("I'm in isSingleton() method in SimpleBeanFactoryBean");
 		return false;
 	}
 }
